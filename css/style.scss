@@ -7,6 +7,25 @@ $dark-text-color: #ffffff;
 $primary-theme-color: #AA0601;
 $secondary-background-color: #FBF2F2;
 
+@mixin nav($gap: 0) {
+    display: flex;
+    li {
+        padding-right: $gap;
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+@mixin list-gap($gap: 0) {
+    li {
+        margin-bottom: $gap;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
 /* base */
 img {
     display: block;
@@ -24,17 +43,6 @@ img {
 a {
     text-decoration: none;
     color: $primary-text-color;
-}
-
-input[type="text"]::placeholder {
-    padding-left: 16px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-}
-input[type="text"]::-moz-placeholder {
-    padding-left: 16px;
-    padding-top: 14px;
-    padding-bottom: 14px;
 }
 
 /* component */
@@ -68,23 +76,11 @@ input[type="text"]::-moz-placeholder {
 
 /* TODO: use mixin */
 .nav-p-64 {
-    display: flex;
-    li {
-        padding-right: 64px;
-        &:last-child {
-            padding-right: 0;
-        }
-    }
+    @include nav(64px);
 }
 
 .nav-p-32 {
-    display: flex;
-    li {
-        padding-right: 32px;
-        &:last-child {
-            padding-right: 0;
-        }
-    }
+    @include nav(32px);
 }
 
 .header {
@@ -189,6 +185,8 @@ input[type="text"]::-moz-placeholder {
         border: 1px solid #000000;
         background-color: $secondary-background-color;
         
+        font: normal normal normal 16px/24px "Noto Sans";
+        padding: 14px 16px;
     }
     .text-area-large {
         height: 136px;
@@ -351,7 +349,6 @@ a.btn {
     justify-content: space-between;
 }
 
-
 .row-btw-center {
     display: flex;
     justify-content: space-between;
@@ -360,21 +357,11 @@ a.btn {
 
 /* list gaps */
 .list-gap-32 {
-    li {
-        margin-bottom: 32px;
-    }
-    &:last-child {
-        margin-bottom: 0;
-    }
+    @include list-gap(32px);
 }
 
 .list-gap-16 {
-    li {
-        margin-bottom: 16px;
-    }
-    &:last-child {
-        margin-bottom: 0;
-    }
+    @include list-gap(16px);
 }
 
 /* font & padding & margin styles */
@@ -514,6 +501,16 @@ a.btn {
         }
     }
 
+    .contact-form {
+        .text-area {
+            font: normal normal normal 14px/21px "Noto Sans";
+            padding: 8px 12px;
+        }
+        .text-area-large {
+            height: 100px;
+        }
+    }
+    /* buttons */
     .img-btn h3 {
         font: normal normal bold 32px/43px Roboto;
     }
@@ -524,29 +521,18 @@ a.btn {
 
     /* padding & margin */
     .list-gap-32 {
-        li {
-            margin-bottom: 8px;
-        }
-        &:last-child {
-            margin-bottom: 0;
-        }
+       @include list-gap(8px);
     }
     .list-gap-16 {
-        li {
-            margin-bottom: 8px;
-        }
-        &:last-child {
-            margin-bottom: 0;
-        }
+        @include list-gap(8px);
     }
     .nav-p-32 {
-        li {
-            padding-right: 24px;
-            &:last-child {
-                padding-right: 0;
-            }
-        }
+        @include nav(24px);
     }
+    .mb-42 {
+        margin-bottom: 24px;
+    }
+
     /* titles */
     .title-box {
         h1 {

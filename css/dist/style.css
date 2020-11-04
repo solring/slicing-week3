@@ -19,18 +19,6 @@ a {
   color: #111619;
 }
 
-input[type=text]::placeholder {
-  padding-left: 16px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
-input[type=text]::-moz-placeholder {
-  padding-left: 16px;
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
 /* component */
 .logo {
   content: url("https://hexschool.github.io/webLayoutTraining1st/week3/logo.png");
@@ -175,6 +163,8 @@ input[type=text]::-moz-placeholder {
   width: 100%;
   border: 1px solid #000000;
   background-color: #FBF2F2;
+  font: normal normal normal 16px/24px "Noto Sans";
+  padding: 14px 16px;
 }
 .contact-form .text-area-large {
   height: 136px;
@@ -465,6 +455,15 @@ a.btn {
     height: 32px;
   }
 
+  .contact-form .text-area {
+    font: normal normal normal 14px/21px "Noto Sans";
+    padding: 8px 12px;
+  }
+  .contact-form .text-area-large {
+    height: 100px;
+  }
+
+  /* buttons */
   .img-btn h3 {
     font: normal normal bold 32px/43px Roboto;
   }
@@ -489,11 +488,18 @@ a.btn {
     margin-bottom: 0;
   }
 
+  .nav-p-32 {
+    display: flex;
+  }
   .nav-p-32 li {
     padding-right: 24px;
   }
   .nav-p-32 li:last-child {
     padding-right: 0;
+  }
+
+  .mb-42 {
+    margin-bottom: 24px;
   }
 
   /* titles */
