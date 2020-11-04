@@ -1,0 +1,692 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+/* base */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Roboto", "Noto Sans";
+}
+
+a {
+  text-decoration: none;
+  color: #111619;
+}
+
+input[type=text]::placeholder {
+  padding-left: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+input[type=text]::-moz-placeholder {
+  padding-left: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* component */
+.logo {
+  content: url("https://hexschool.github.io/webLayoutTraining1st/week3/logo.png");
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo-small {
+  content: url("https://hexschool.github.io/webLayoutTraining1st/week3/logo.png");
+  display: inline-block;
+  vertical-align: middle;
+  width: 46px;
+}
+
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.container-sm {
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.section {
+  padding-top: 64px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+/* TODO: use mixin */
+.nav-p-64 {
+  display: flex;
+}
+.nav-p-64 li {
+  padding-right: 64px;
+}
+.nav-p-64 li:last-child {
+  padding-right: 0;
+}
+
+.nav-p-32 {
+  display: flex;
+}
+.nav-p-32 li {
+  padding-right: 32px;
+}
+.nav-p-32 li:last-child {
+  padding-right: 0;
+}
+
+.header {
+  padding: 30px 88px;
+}
+
+.banner {
+  height: calc(100vh - 108px);
+  background: url("https://hexschool.github.io/webLayoutTraining1st/week3/banner.png") center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  padding-right: 10%;
+}
+
+.title-box {
+  display: inline-block;
+  text-align: right;
+  color: #650300;
+}
+.title-box h1 {
+  font-size: 64px;
+  line-height: 96px;
+  font-weight: bold;
+  padding-right: 4px;
+}
+.title-box h2 {
+  font-size: 36px;
+  line-height: 54px;
+}
+
+.feature-item {
+  width: 20%;
+  /* for img vertical align center */
+}
+.feature-item .img-wrap {
+  height: 100px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+.feature-item h3 {
+  color: #650300;
+  font: normal normal bold 24px/36px Noto Sans;
+}
+.feature-item p {
+  font: normal normal normal 16px/24px Noto Sans;
+  text-align: left;
+}
+
+.product-list .icon-title {
+  color: #AA0601;
+  font: italic normal 900 48px/72px Roboto;
+  font-variant-caps: all-petite-caps;
+  margin: 0 30px;
+}
+.product-list .profile-pic {
+  width: 57%;
+}
+
+.recommend-list li {
+  width: 20%;
+  margin-bottom: 30px;
+}
+.recommend-list .text-box {
+  border: 1px solid #DEE2E6;
+  padding-top: 14px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: left;
+}
+.recommend-list h4 {
+  font: normal normal 500 14px/21px Roboto;
+  padding-bottom: 7px;
+}
+.recommend-list p {
+  font: normal normal normal 16px/24px Roboto;
+  padding-bottom: 10px;
+}
+.recommend-list .timestamp {
+  color: #707070;
+  font: normal normal normal 14px/21px Roboto;
+}
+
+.special {
+  background: url("https://hexschool.github.io/webLayoutTraining1st/week3/bg.png") center;
+  background-size: cover;
+}
+
+.contact-form {
+  text-align: left;
+}
+.contact-form .text-area {
+  width: 100%;
+  border: 1px solid #000000;
+  background-color: #FBF2F2;
+}
+.contact-form .text-area-large {
+  height: 136px;
+}
+
+.footer {
+  padding-top: 36px;
+  padding-bottom: 28px;
+  padding-right: 39px;
+  padding-left: 39px;
+}
+
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.primary-theme {
+  background: #AA0601;
+  color: #ffffff;
+}
+.primary-theme a {
+  color: #ffffff;
+}
+.primary-theme a:hover {
+  color: #111619;
+}
+
+.upper-line {
+  border-top: 1px solid #ffffff;
+}
+
+.icon-title img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 17px;
+}
+
+.contact {
+  padding-top: 18px;
+  padding-bottom: 20px;
+  font: normal normal normal 36px/54px Roboto;
+}
+.contact .icon-title img {
+  width: 48px;
+}
+
+.special li {
+  width: 48%;
+}
+
+/* buttons */
+.img-btn {
+  display: block;
+  position: relative;
+  color: #AA0601;
+}
+.img-btn h3 {
+  font: normal normal bold 72px/108px Roboto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+a.btn {
+  display: block;
+}
+
+.btn-primary {
+  display: block;
+  border: none;
+  background-color: #AA0601;
+  color: #ffffff;
+  font: normal normal bold 16px/24px "Noto Sans";
+  margin: 0 auto;
+  padding: 16px 143px;
+}
+
+/* titles */
+.section-title {
+  color: #650300;
+  font: normal normal bold 48px/72px "Noto Sans";
+  margin-bottom: 60px;
+}
+.section-title.light {
+  color: #ffffff;
+}
+
+.title {
+  font: normal normal bold 48px/72px "Noto Sans";
+  margin-bottom: 24px;
+}
+
+.product-title {
+  color: #AA0601;
+  font: normal normal bold 72px/108px Roboto;
+}
+
+/* layouts */
+.row-start-center {
+  display: flex;
+  align-items: center;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.row-btw {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row-btw-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* list gaps */
+.list-gap-32 li {
+  margin-bottom: 32px;
+}
+.list-gap-32:last-child {
+  margin-bottom: 0;
+}
+
+.list-gap-16 li {
+  margin-bottom: 16px;
+}
+.list-gap-16:last-child {
+  margin-bottom: 0;
+}
+
+/* font & padding & margin styles */
+.fnt-36-l-54 {
+  font-size: 36px;
+  line-height: 54px;
+}
+
+.fnt-20-l-30 {
+  font: normal normal normal 20px/30px Noto Sans;
+}
+
+.fnt-16-l-24 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.fnt-14-l-21 {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.pt-24 {
+  padding-top: 24px;
+}
+
+.pt-18 {
+  padding-top: 18px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.mr-38 {
+  margin-right: 38px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 4px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-42 {
+  margin-bottom: 42px;
+}
+
+.support-bg-color {
+  background-color: #FBF2F2;
+}
+
+/* icons */
+.icon {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+}
+
+.icon-diamond {
+  background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-diamond.png") center;
+}
+
+.icon-sun {
+  background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-sun.png") center;
+}
+
+.icon-thunder {
+  background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-thunder.png") center;
+}
+
+/* RWD */
+.small-only {
+  display: none;
+}
+
+/* for tablet */
+@media screen and (max-width: 992px) {
+  .container {
+    max-width: 690px;
+  }
+
+  .container-sm {
+    max-width: 450px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .feature-list {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .feature-item {
+    width: 35%;
+  }
+
+  .recommend-list {
+    flex-wrap: wrap;
+  }
+  .recommend-list li {
+    width: 48%;
+  }
+  .recommend-list img {
+    min-width: 100%;
+  }
+
+  .product-list .row-reverse {
+    flex-direction: row;
+  }
+
+  .feature-item .img-wrap {
+    margin-bottom: 16px;
+  }
+  .feature-item h3 {
+    font: normal normal bold 20px/30px "Noto Sans";
+  }
+
+  .product-list .icon-title {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .product-list .icon-title img {
+    height: 32px;
+  }
+
+  .img-btn h3 {
+    font: normal normal bold 32px/43px Roboto;
+  }
+
+  .btn-primary {
+    font: normal normal bold 14px/21px "Noto Sans";
+    padding: 8px 76px;
+  }
+
+  /* padding & margin */
+  .list-gap-32 li {
+    margin-bottom: 8px;
+  }
+  .list-gap-32:last-child {
+    margin-bottom: 0;
+  }
+
+  .list-gap-16 li {
+    margin-bottom: 8px;
+  }
+  .list-gap-16:last-child {
+    margin-bottom: 0;
+  }
+
+  .nav-p-32 li {
+    padding-right: 24px;
+  }
+  .nav-p-32 li:last-child {
+    padding-right: 0;
+  }
+
+  /* titles */
+  .title-box h1 {
+    font: normal normal bold 48px/72px "Noto Sans";
+    padding-right: 0;
+  }
+  .title-box h2 {
+    font: normal normal 500 20px/30px "PingFang TC";
+  }
+
+  .section-title, .title {
+    font: normal normal bold 32px/48px "Noto Sans";
+    margin-bottom: 32px;
+  }
+
+  /* fonts */
+  .fnt-16-l-24 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .fnt-20-l-30 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* ----- header & footer ----- */
+  .contact {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .icon-list img {
+    width: 24px;
+    height: auto;
+  }
+
+  .footer .icon-title img {
+    width: 28px;
+    height: auto;
+  }
+
+  .large-only {
+    display: none;
+  }
+
+  .small-only {
+    display: none;
+  }
+}
+/* for smartphone */
+@media screen and (max-width: 768px) {
+  .container, .container-sm {
+    max-width: 345px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+
+  .banner {
+    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/banner-sm.png") center;
+    background-size: cover;
+    align-items: end;
+    padding-right: 5%;
+    height: 394px;
+  }
+
+  .title-box h1 {
+    font: normal normal bold 32px/72px "Noto Sans";
+  }
+  .title-box h2 {
+    font: normal normal 500 16px/30px "PingFang TC";
+  }
+
+  .section-title, .title {
+    font: normal normal bold 24px/48px "Noto Sans";
+    margin-bottom: 20px;
+  }
+
+  .feature-item {
+    width: 68%;
+    margin-bottom: 40px;
+  }
+  .feature-item .img-wrap {
+    height: 80px;
+  }
+
+  .product-list .profile-pic {
+    width: 100%;
+  }
+  .product-list a {
+    display: block;
+    position: relative;
+  }
+  .product-list a .icon-title {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+  }
+  .product-list a .icon-title img {
+    display: inline-block;
+  }
+
+  .recommend-list li {
+    width: 100%;
+  }
+
+  .special .container {
+    flex-wrap: wrap;
+  }
+  .special .container li {
+    width: 100%;
+    padding-bottom: 16px;
+  }
+  .special .container li:last-child {
+    padding-bottom: 0;
+  }
+
+  /* fonts */
+  .fnt-16-l-24 {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .fnt-20-l-30 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  /* ----- header & footer ----- */
+  .header {
+    padding: 0 0;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header-inner .logo {
+    width: 48px;
+    padding: 10px 0;
+  }
+  .header-inner .nav-p-64, .header-inner .nav-p-32 {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .header-inner .nav-p-64 li, .header-inner .nav-p-32 li {
+    width: 50%;
+    padding: 8px 0;
+    border: 1px solid #ffffff;
+  }
+  .header-inner .nav-p-64 li a, .header-inner .nav-p-32 li a {
+    display: block;
+    text-align: center;
+  }
+
+  .contact {
+    padding-top: 0;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .footer .menu {
+    display: none;
+  }
+  .footer .icon-title img {
+    width: 20px;
+    height: auto;
+  }
+
+  .footer-upper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: start;
+    line-height: 21px;
+  }
+  .footer-bottom .nav {
+    flex-direction: column;
+  }
+
+  .footer-bottom-wrap {
+    justify-content: space-between;
+    align-items: end;
+  }
+
+  /* display control */
+  .small-only {
+    display: block;
+  }
+
+  .not-small {
+    display: none;
+  }
+}
