@@ -155,7 +155,7 @@ input[type="text"]::-moz-placeholder {
 
 .recommend-list {
     li {
-        width: 20%;
+        width: 23%;
         margin-bottom: 30px;
     }
     .text-box {
@@ -243,6 +243,10 @@ input[type="text"]::-moz-placeholder {
         vertical-align: middle;
         margin-right: 17px;
     }
+
+    .icon {
+        margin-right: 17px;
+    }
 }
 
 .contact {
@@ -267,6 +271,17 @@ input[type="text"]::-moz-placeholder {
     display: block;
     position: relative; // for title over img
     color: $primary-theme-color; 
+
+    img::after {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: 10;
+    }
     
     // title over img
     h3 {
@@ -284,6 +299,7 @@ input[type="text"]::-moz-placeholder {
         // before it's move back to the correct position.
         // Therefore we have to disable word wrapping.
         white-space: nowrap;
+        z-index: 100;
     }
 }
 
@@ -423,19 +439,20 @@ a.btn {
 /* icons */
 .icon {
     display: inline-block;
+    vertical-align: middle;
     height: 48px;
     width: 48px;
 }
 .icon-diamond {
-    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-diamond.png") center;
+    background: center / contain no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-diamond.svg");
 }
 
 .icon-sun {
-    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-sun.png") center;
+    background: center / contain no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-sun.svg");
 }
 
 .icon-thunder {
-    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-thunder.png") center;
+    background: center / contain no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-thunder.svg");
 }
 
 /* RWD */
@@ -493,7 +510,8 @@ a.btn {
         .icon-title {
             font-size: 28px;
             line-height: 42px;
-            img {
+            .icon {
+                width: 32px;
                 height: 32px;
             }
         }
@@ -634,16 +652,32 @@ a.btn {
         a {
             display: block;
             position: relative;
+
             .icon-title {
                 margin: 0; // reset margin
-                img {
-                    display: inline-block;
-                }
+
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 white-space: nowrap;
+
+                color: $dark-text-color;
+                .icon-sun {
+                    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-sun-white.svg") center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                .icon-diamond {
+                    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-diamond-white.svg") center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                .icon-thunder {
+                    background: url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-thunder-white.svg") center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
             }
         }
     }
