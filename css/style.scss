@@ -2,10 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap');
 
 $primary-text-color: #111619;
+$primary-gray-color: #555555;
 $secondary-text-color: #650300;
 $dark-text-color: #ffffff;
 $primary-theme-color: #AA0601;
 $secondary-background-color: #FBF2F2;
+$secondary-gray-color: #DCDCDC;
+$supportive-color-brown: #5F3E2D;
+$supportive-color-orange: #B75929;
+
 
 @mixin nav($gap: 0) {
     display: flex;
@@ -24,6 +29,14 @@ $secondary-background-color: #FBF2F2;
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+@mixin sqrt($width) {
+    display: inline-block;
+    width: $width;
+    height: $width;
+    border-radius: 4px; 
+    margin-right: 8px;
 }
 
 /* base */
@@ -58,6 +71,18 @@ a {
     width: 46px;
 }
 
+.icon-title {
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 17px;
+    }
+
+    .icon {
+        margin-right: 17px;
+    }
+}
+
 .container {
     max-width: 1110px;
     margin: 0 auto;
@@ -72,15 +97,6 @@ a {
     padding-top: 64px;
     padding-bottom: 80px;
     text-align: center;
-}
-
-/* TODO: use mixin */
-.nav-p-64 {
-    @include nav(64px);
-}
-
-.nav-p-32 {
-    @include nav(32px);
 }
 
 .header {
@@ -176,6 +192,9 @@ a {
 .special {
     background: url("https://hexschool.github.io/webLayoutTraining1st/week3/bg.png") center;
     background-size: cover;
+    li {
+        width: 48%; // assume fix button size
+    }
 }
 
 .contact-form {
@@ -191,7 +210,6 @@ a {
     .text-area-large {
         height: 136px;
     }
-
 }
 
 .footer {
@@ -215,7 +233,69 @@ a {
     align-items: center;
 }
 
+.contact {
+    padding-top: 18px;
+    padding-bottom: 20px;
+    font: normal normal normal 36px/54px Roboto;
+    .icon-title {
+        img {
+            width: 48px;
+        }
+    }
+}
 
+.product-tabs {
+    max-width: 1386px;
+    margin: 0 auto;
+    font: normal normal 500 42px/63px Roboto;
+    font-variant-caps: all-petite-caps;
+    li {
+        padding: 24px auto;
+        border: 1px solid $secondary-gray-color;
+        width: 34%;
+        &.selected {
+            border-bottom: 16px solid $primary-theme-color;
+        }
+    }
+}
+
+.product-details {
+    padding-top: 88px;
+    h2 {
+        font: normal normal 500 42px/63px Roboto;
+    }
+    h3 {
+        font: normal normal normal 32px/48px "Noto Sans";
+    }
+}
+
+.product-item-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li {
+        text-align: left;
+        width: 23%;
+        margin-bottom: 104px;
+    }
+
+    .pic-container {
+        width: 100%;
+        height: 164px;
+        overflow: hidden;
+    }
+
+    .price {
+        color: $secondary-text-color;
+        font: normal normal 500 24px/36px Roboto;
+    }
+
+    .name {
+        font: normal normal normal 24px/36px Roboto;
+    }
+}
+
+/* styles */
 .primary-theme {
     background: $primary-theme-color;
     color: $dark-text-color;
@@ -232,33 +312,18 @@ a {
     border-top: 1px solid $dark-text-color;
 }
 
-.icon-title {
-    img {
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 17px;
-    }
-
-    .icon {
-        margin-right: 17px;
-    }
+.text-center {
+    text-align: center;
 }
 
-.contact {
-    padding-top: 18px;
-    padding-bottom: 20px;
-    font: normal normal normal 36px/54px Roboto;
-    .icon-title {
-        img {
-            width: 48px;
-        }
-    }
+.brown-sqrt {
+    @include sqrt(24px);
+    background: $supportive-color-brown;
 }
 
-.special {
-    li {
-        width: 48%; // assume fix button size
-    }
+.orange-sqrt {
+    @include sqrt(24px);
+    background: $supportive-color-orange;
 }
 
 /* buttons */
@@ -312,6 +377,52 @@ a.btn {
     padding: 16px 143px;
 }
 
+.btn-group {
+    display: inline-flex;
+    align-items: stretch;
+    color: $primary-gray-color;
+    font: normal normal normal 18px/27px Roboto;
+
+    a {
+        color: $primary-gray-color;
+        display: block;
+        border: 1px solid $primary-gray-color;
+        padding: 11px 16px;
+    }
+    li:first-child a {
+        font: normal normal normal 19px/29px "Noto Sans";
+        padding: 10px 12px;
+    }
+    li:last-child a {
+        font: normal normal normal 19px/29px "Noto Sans";
+        padding: 10px 12px;
+    }
+    .selected a{
+        background: #000;
+        color: #ffffff;
+    }
+    li:hover a {
+        background: $secondary-background-color;
+    }
+}
+
+/* navs */
+.nav-p-64 {
+    @include nav(64px);
+}
+
+.nav-p-32 {
+    @include nav(32px);
+}
+
+.nav-p-30 {
+    @include nav(30px);
+}
+
+.nav-p-0 {
+    @include nav;
+}
+
 /* titles */
 .section-title {
     color: $secondary-text-color;
@@ -323,15 +434,9 @@ a.btn {
     }
 }
 
-
 .title {
     font: normal normal bold 48px/72px "Noto Sans"; 
     margin-bottom: 24px;
-}
-
-.product-title {
-    color: $primary-theme-color;
-    font: normal normal bold 72px/108px Roboto;
 }
 
 /* layouts */
@@ -404,6 +509,9 @@ a.btn {
     margin-top: 8px;
 }
 
+.mt-40 {
+    margin-top: 40px;
+}
 .mb-4 {
     margin-bottom: 4px;
 }
@@ -414,6 +522,10 @@ a.btn {
 
 .mb-42 {
     margin-bottom: 42px;
+}
+
+.mb-104 {
+    margin-bottom: 104px;
 }
 
 .support-bg-color {
