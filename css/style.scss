@@ -1,23 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap');
-
-$primary-text-color: #111619;
-$primary-gray-color: #555555;
-$secondary-text-color: #650300;
-$dark-text-color: #ffffff;
-$primary-theme-color: #AA0601;
-$secondary-background-color: #FBF2F2;
-$secondary-gray-color: #DCDCDC;
-$supportive-color-brown: #5F3E2D;
-$supportive-color-orange: #B75929;
+@import 'base';
 
 
 @mixin nav($gap: 0) {
     display: flex;
     li {
-        padding-right: $gap;
+        margin-right: $gap;
         &:last-child {
-            padding-right: 0;
+            margin-right: 0;
         }
     }
 }
@@ -37,6 +26,17 @@ $supportive-color-orange: #B75929;
     height: $width;
     border-radius: 4px; 
     margin-right: 8px;
+}
+
+@mixin wrap-n-column($n, $gap, $total) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    $ratio: ($total - ($n - 1) * $gap) / ($n * $total); 
+    $width : unquote( $ratio * 100 + '%' );
+    li {
+        width: $width;
+    }
 }
 
 /* base */
@@ -259,6 +259,20 @@ a {
     }
 }
 
+.product-banner {
+    height: 309px;
+    .banner-left {
+        width: 50%;
+        height: 100%;
+        background: center / cover no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/banner-1.png");
+    }
+    .banner-right {
+        width: 50%;
+        height: 100%;
+        background: center / cover no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/banner-2.png");
+    }
+}
+
 .product-details {
     padding-top: 88px;
     h2 {
@@ -270,19 +284,19 @@ a {
 }
 
 .product-item-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    @include wrap-n-column(4, 30, 1110); 
     li {
-        text-align: left;
-        width: 23%;
         margin-bottom: 104px;
+        text-align: left;
     }
 
     .pic-container {
         width: 100%;
         height: 164px;
         overflow: hidden;
+        img {
+            width: 100%;
+        }
     }
 
     .price {
@@ -389,14 +403,12 @@ a.btn {
         border: 1px solid $primary-gray-color;
         padding: 11px 16px;
     }
-    li:first-child a {
+
+    li:first-child a, li:last-child a{
         font: normal normal normal 19px/29px "Noto Sans";
         padding: 10px 12px;
     }
-    li:last-child a {
-        font: normal normal normal 19px/29px "Noto Sans";
-        padding: 10px 12px;
-    }
+
     .selected a{
         background: #000;
         color: #ffffff;
@@ -480,8 +492,7 @@ a.btn {
 }
 
 .fnt-16-l-24 {
-    font-size: 16px;
-    line-height: 24px;
+    font: normal normal normal 16px/24px Roboto;
 }
 
 .fnt-14-l-21 {
@@ -551,11 +562,11 @@ a.btn {
     background: center / contain no-repeat url("https://hexschool.github.io/webLayoutTraining1st/week3/icon-thunder.svg");
 }
 
-/* RWD */
+/* =========== RWD ========== */
 .small-only {
     display: none;
 }
-/* for tablet */
+/* ------ for tablet ----- */
 @media screen and (max-width: 992px) {
     .container {
         max-width: 690px;
@@ -606,10 +617,6 @@ a.btn {
         .icon-title {
             font-size: 28px;
             line-height: 42px;
-            .icon {
-                width: 32px;
-                height: 32px;
-            }
         }
     }
 
@@ -622,6 +629,47 @@ a.btn {
             height: 100px;
         }
     }
+    /* product details */
+    .product-tabs {
+        font: normal normal 500 28px/42px Roboto;
+        font-variant-caps: all-petite-caps;
+
+        li {
+            padding: 16px auto;
+            &.selected {
+                border-bottom: 8px solid $primary-theme-color;
+            }
+        }
+    }
+    .product-details {
+        padding-top: 40px;
+        h2 {
+            font-size: 32px;
+            line-height: 48px;
+        }
+        h3 {
+            font-size: 24px;
+            line-height: 36px;
+        }
+        .price, .name {
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+
+    .product-item-list {
+        @include wrap-n-column(2, 30, 690);
+        li {
+            margin-bottom: 72px;
+        }
+    }
+
+    /* icon */
+    .icon {
+        width: 32px;
+        height: 32px;
+    }
+
     /* buttons */
     .img-btn h3 {
         font: normal normal bold 32px/43px Roboto;
@@ -640,6 +688,12 @@ a.btn {
     }
     .nav-p-32 {
         @include nav(24px);
+    }
+    .nav-p-30 {
+        @include nav;
+    }
+    .mt-40 {
+        margin-top: 32px;
     }
     .mb-42 {
         margin-bottom: 24px;
@@ -662,11 +716,6 @@ a.btn {
     }
 
     /* fonts */
-    .fnt-16-l-24 {
-        font-size: 14px;
-        line-height: 21px;
-    }
-
     .fnt-20-l-30 {
         font-size: 16px;
         line-height: 24px;
@@ -691,6 +740,7 @@ a.btn {
         } 
     }
 
+    /* display */
     .large-only {
         display: none;
     }
@@ -793,6 +843,72 @@ a.btn {
         }
     }
 
+    /* product details */
+    .product-banner {
+        height: 144px;
+    }
+
+    .product-tabs {
+        font: normal normal 500 14px/19px Roboto;
+        font-variant-caps: all-petite-caps;
+
+        li {
+            padding: 8px auto;
+            &.selected {
+                border-bottom: 4px solid $primary-theme-color;
+            }
+        }
+    }
+    .product-details {
+        padding-top: 20px;
+        h2 {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+        .price, .name {
+            font-size: 16px;
+        }
+    }
+
+    .product-item-list {
+        @include wrap-n-column(1, 0, 345);
+        li {
+            margin-bottom: 32px;
+        }
+    }
+
+    .btn-group {
+        font: normal normal normal 11px/17px Roboto;
+        li:first-child a, li:last-child a{
+            font: normal normal normal 12px/19px Roboto;
+        }
+    }
+
+    /* icon */
+    .icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .brown-sqrt, .orange-sqrt {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+    }
+
+    .icon-title {
+        img, .icon {
+            margin-right: 5px;
+        }
+    }
+
+    /* padding & margin */
+    .mb-104 {
+        margin-bottom: 56px;
+    }
+
     /* fonts */
     .fnt-16-l-24 {
         font-size: 14px;
@@ -828,6 +944,7 @@ a.btn {
                     text-align: center;
                 }
                 width: 50%;
+                margin: 0;
                 padding: 8px 0;
                 border: 1px solid $dark-text-color;
             }
