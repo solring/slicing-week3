@@ -126,6 +126,21 @@ a {
     @include list-gap(16px);
 }
 
+/* buttons */
+a.btn {
+    display: block;
+}
+
+.btn-primary {
+    display: block;
+    border: none;
+    background-color: $primary-theme-color;
+    color: $dark-text-color;
+    font: normal normal bold 16px/24px "Noto Sans";
+    margin: 0 auto;
+    padding: 16px 143px;
+}
+
 /* font & padding & margin styles */
 .fnt-36-l-54 {
     font-size: 36px;
